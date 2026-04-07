@@ -1,11 +1,16 @@
 package com.library.libreria;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import com.library.libreria.repository.BookRepository;
 
 @SpringBootApplication
 public class LibreriaApplication implements CommandLineRunner {
+
+	@Autowired
+	private BookRepository bookRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(LibreriaApplication.class, args);
