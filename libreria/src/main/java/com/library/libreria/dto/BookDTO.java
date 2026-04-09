@@ -2,23 +2,23 @@ package com.library.libreria.dto;
 
 public class BookDTO {
 
-    private long id;
+    private Long id;
     private String title;
     private String author;
     private String status;
 
-    public BookDTO(long id, String title, String author, String status) {
+    public BookDTO(Long id, String title, String author, String status) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.status = status;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -6,9 +6,7 @@ import com.library.libreria.mapper.BookMapper;
 import com.library.libreria.repository.BookRepository;
 import com.library.libreria.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,4 +23,8 @@ public class BookController {
         return bookService.listBooks();
     }
 
+    @PostMapping("/libros")
+    public BookDTO insertBook(@RequestBody BookDTO dto){
+        return bookService.bookInsert(dto);
+    }
 }

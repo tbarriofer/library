@@ -1,6 +1,7 @@
 package com.library.libreria.service;
 
 import com.library.libreria.dto.BookDTO;
+import com.library.libreria.entity.Book;
 import com.library.libreria.mapper.BookMapper;
 import com.library.libreria.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +17,11 @@ public class BookService {
 
     public List<BookDTO> listBooks() {
         return bookRepository.findAll().stream().map(BookMapper::toDTO).collect(Collectors.toList());
+    }
+
+    public BookDTO bookInsert(BookDTO dto){
+        Book book = BookMapper.toEntity(dto);
+        Book insertedBook = bookRepository.save(book);
+        return BookMapper.toDTO(insertedBook);
     }
 }
