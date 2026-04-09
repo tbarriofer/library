@@ -4,6 +4,7 @@ import com.library.libreria.dto.BookDTO;
 import com.library.libreria.entity.Book;
 import com.library.libreria.mapper.BookMapper;
 import com.library.libreria.repository.BookRepository;
+import com.library.libreria.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +18,11 @@ import java.util.stream.Collectors;
 public class BookController {
 
     @Autowired
-    private BookRepository bookRepository;
+    private BookService bookService;
 
     @GetMapping("/libros")
-    public List<BookDTO> listBooks() {
-        return bookRepository.findAll().stream().map(BookMapper::toDTO).collect(Collectors.toList());
+    public List<BookDTO> consult(){
+        return bookService.listBooks();
     }
+
 }
