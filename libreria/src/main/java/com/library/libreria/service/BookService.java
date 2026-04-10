@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -37,5 +36,14 @@ public class BookService {
                     return BookMapper.toDTO(updated);
                 })
                 .orElseThrow(() -> new BookNotFoundException(id));
+    }
+
+    public String deleteBook(Long id){
+        if (bookRepository.existsById(id)) {
+            bookRepository.deleteById(id);
+            return "Libro eliminado correctamente";
+        } else {
+            return "Libro no encontrado";
+        }
     }
 }
