@@ -1,7 +1,7 @@
 package com.library.libreria.repository;
 
-import com.library.libreria.entity.Book;
+import com.library.libreria.entity.BookEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface BookRepository extends JpaRepository <Book, Long>{
+public interface BookRepository extends JpaRepository <BookEntity, Long>{
 }

@@ -1,10 +1,10 @@
 package com.library.libreria.mapper;
 
 import com.library.libreria.dto.BookDTO;
-import com.library.libreria.entity.Book;
+import com.library.libreria.entity.BookEntity;
 
 public class BookMapper {
-    public static BookDTO toDTO(Book book) {
+    public static BookDTO toDTO(BookEntity book) {
         return new BookDTO(
                 book.getId(),
                 book.getTitle(),
@@ -13,8 +13,8 @@ public class BookMapper {
         );
     }
 
-    public static Book toEntity(BookDTO dto){
-        Book book = new Book();
+    public static BookEntity toEntity(BookDTO dto){
+        BookEntity book = new BookEntity();
         book.setId(dto.getId());
         book.setTitle(dto.getTitle());
         book.setAuthor(dto.getAuthor());

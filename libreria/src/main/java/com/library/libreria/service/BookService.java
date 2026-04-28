@@ -1,7 +1,7 @@
 package com.library.libreria.service;
 
 import com.library.libreria.dto.BookDTO;
-import com.library.libreria.entity.Book;
+import com.library.libreria.entity.BookEntity;
 import com.library.libreria.exception.BookNotFoundException;
 import com.library.libreria.mapper.BookMapper;
 import com.library.libreria.repository.BookRepository;
@@ -21,8 +21,8 @@ public class BookService {
     }
 
     public BookDTO insertBook(BookDTO dto) {
-        Book book = BookMapper.toEntity(dto);
-        Book insertedBook = bookRepository.save(book);
+        BookEntity book = BookMapper.toEntity(dto);
+        BookEntity insertedBook = bookRepository.save(book);
         return BookMapper.toDTO(insertedBook);
     }
 
@@ -32,7 +32,7 @@ public class BookService {
                     book.setTitle(dto.getTitle());
                     book.setAuthor(dto.getAuthor());
                     book.setStatus(dto.getStatus());
-                    Book updated = bookRepository.save(book);
+                    BookEntity updated = bookRepository.save(book);
                     return BookMapper.toDTO(updated);
                 })
                 .orElseThrow(() -> new BookNotFoundException(id));

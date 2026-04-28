@@ -1,6 +1,6 @@
 package com.library.libreria;
 
-import com.library.libreria.entity.Book;
+import com.library.libreria.entity.BookEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -22,7 +22,7 @@ public class LibreriaApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("Aplicación iniciada correctamente.");
-        List<Book> books = bookRepository.findAll();
+        List<BookEntity> books = bookRepository.findAll();
         books.forEach(System.out::println);
     }
 }
