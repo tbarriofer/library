@@ -15,7 +15,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        var userEntity = userRepo.findByUser(userName).orElseThrow(() -> new UsernameNotFoundException("Usuario " + userName + " no encontrado"));
+        var userEntity = userRepo.findByUserName(userName).orElseThrow(() -> new UsernameNotFoundException("Usuario " + userName + " no encontrado"));
         return User.builder()
                 .username(userEntity.getUserName())
                 .password(userEntity.getPassword())
